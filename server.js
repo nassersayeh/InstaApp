@@ -10,6 +10,6 @@ app.use(express.json()); // This is new
 app.use(express.urlencoded({ extended: true })); // This is new
 app.use('/api',require('./server/routes/authRouter')) //new one 
 app.use('/user',userRouter)
-app.listen(8000, () => {
+app.listen(5000, () => {
 console.log("Listening at Port 8000")
 })

@@ -1,17 +1,19 @@
 import { postDataApi } from "../../utils/fetchData"
-export const TYPES ={
+// import {dispatch} from 'dispatch'
+export  const TYPES ={
     AUTH : 'AUTH'
 }
-export const login =(data) =>{
+export const login =(data) =>async(dispatch)=>{
     try{
         dispatch({type:'NOTIFY',payload:{loading:true} })
         const res = await postDataApi('login', data)
+
         dispatch
-        ({type:'NOTIFY',
+        ({type:'AUTH',
         payload:{token:res.data.access_token,
         user:res.data.user} })
 
-        console.log(res )
+    
         localStorage.setItem("firstLogin",true)
         dispatch
         ({type:'NOTIFY',
@@ -20,7 +22,7 @@ export const login =(data) =>{
     }catch(err){
         dispatch
         ({type:'NOTIFY',
-        payload:{error:err.respone.data.msg} })
+        payload:{error:err.response.data.msg} })
 
     }
 }

@@ -1,8 +1,9 @@
-import TYPES from '../actions/authAction'
+import {TYPES} from '../actions/authAction'
 const initialState ={}
 const authReducer=(state=initialState,action)=>{
     switch(action.type){
-        case TYPES.auth:
+        case
+         TYPES.auth:
             return action.payload;
             default:
                 return state
