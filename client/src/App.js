@@ -1,5 +1,6 @@
 import {BrowserRouter as Router,Route} from 'react-router-dom'
-import PageRender from './PageRender';
+import PageRender from './customRouter/PageRender';
+import PrivateRouter from './customRouter/PrivateRouter';
 import Login from './pages/login'
 import Register from './pages/register'
 import Home from './pages/home'
@@ -15,8 +16,9 @@ function App() {
     <div className="App">
       {auth.token && <Header/>}
       <Route exact path="/" component={auth.token ? Home : Login} />
-      <Route exact path='/:page' component={PageRender} />
-      <Route exact path='/:page/id' component={PageRender} />
+      <Route exact path="/register" component={Register} />
+      <PrivateRouter exact path='/:page' component={PageRender} />
+      <PrivateRouter exact path='/:page/id' component={PageRender} />
     </div>
     </Router>
   );
