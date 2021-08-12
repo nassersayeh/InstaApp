@@ -1,4 +1,12 @@
 const mongoose = require('mongoose');
+
+require('../models/instapp.model');
+require('../models/comment.model');
+require('../routes/authRouter');
+require('../controllers/authCtrl');
+
+
+
 mongoose.connect("mongodb://localhost/instapp", {
     useNewUrlParser: true,
     useUnifiedTopology: true,

@@ -1,6 +1,9 @@
-import {combineReducers} from 'redux'
+import { combineReducers } from 'redux'
 import auth from './authReducer'
-import notify from './notifyReducer'
+import notifyReducer from './notifyReducer'
+import theme from './themeReducer'
 export default combineReducers({
-    auth,notify
+    auth,
+    notifyReducer,
+    theme
 })
