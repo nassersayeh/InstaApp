@@ -4,7 +4,7 @@ import { useHistory, Link } from 'react-router-dom'
 import { register } from '../redux/actions/authAction'
 
 const Register = () => {
-    const { auth, notifyReducer } = useSelector(state => state)
+    const { auth, alert } = useSelector(state => state)
     const dispatch = useDispatch()
     const history = useHistory()
 
@@ -35,16 +35,16 @@ const Register = () => {
     return (
         <div className="auth_page">
             <form onSubmit={handleSubmit}>
-                <h3 className="text-uppercase text-center mb-4">InstaApp</h3>
+                <h3 className="text-uppercase text-center mb-4">Insta App</h3>
 
                 <div className="form-group">
                     <label htmlFor="fullname">Full Name</label>
                     <input type="text" className="form-control" id="fullname" name="fullname"
                     onChange={handleChangeInput} value={fullname}
-                    style={{background: `${notifyReducer.fullname ? '#fd2d6a14' : ''}`}} />
+                    style={{background: `${alert.fullname ? '#fd2d6a14' : ''}`}} />
                     
                     <small className="form-text text-danger">
-                        {notifyReducer.fullname ? notifyReducer.fullname : ''}
+                        {alert.fullname ? alert.fullname : ''}
                     </small>
                 </div>
 
@@ -52,10 +52,10 @@ const Register = () => {
                     <label htmlFor="username">User Name</label>
                     <input type="text" className="form-control" id="username" name="username"
                     onChange={handleChangeInput} value={username.toLowerCase().replace(/ /g, '')}
-                    style={{background: `${notifyReducer.username ? '#fd2d6a14' : ''}`}} />
+                    style={{background: `${alert.username ? '#fd2d6a14' : ''}`}} />
                     
                     <small className="form-text text-danger">
-                        {notifyReducer.username ? notifyReducer.username : ''}
+                        {alert.username ? alert.username : ''}
                     </small>
                 </div>
 
@@ -63,10 +63,10 @@ const Register = () => {
                     <label htmlFor="exampleInputEmail1">Email address</label>
                     <input type="email" className="form-control" id="exampleInputEmail1" name="email"
                     onChange={handleChangeInput} value={email}
-                    style={{background: `${notifyReducer.email ? '#fd2d6a14' : ''}`}} />
+                    style={{background: `${alert.email ? '#fd2d6a14' : ''}`}} />
                     
                     <small className="form-text text-danger">
-                        {notifyReducer.email ? notifyReducer.email : ''}
+                        {alert.email ? alert.email : ''}
                     </small>
                 </div>
 
@@ -78,7 +78,7 @@ const Register = () => {
                         <input type={ typePass ? "text" : "password" } 
                         className="form-control" id="exampleInputPassword1"
                         onChange={handleChangeInput} value={password} name="password"
-                        style={{background: `${notifyReducer.password ? '#fd2d6a14' : ''}`}} />
+                        style={{background: `${alert.password ? '#fd2d6a14' : ''}`}} />
 
                         <small onClick={() => setTypePass(!typePass)}>
                             {typePass ? 'Hide' : 'Show'}
@@ -86,7 +86,7 @@ const Register = () => {
                     </div>
 
                     <small className="form-text text-danger">
-                        {notifyReducer.password ? notifyReducer.password : ''}
+                        {alert.password ? alert.password : ''}
                     </small>
                 </div>
 
@@ -98,7 +98,7 @@ const Register = () => {
                         <input type={ typeCfPass ? "text" : "password" } 
                         className="form-control" id="cf_password"
                         onChange={handleChangeInput} value={cf_password} name="cf_password"
-                        style={{background: `${notifyReducer.cf_password ? '#fd2d6a14' : ''}`}} />
+                        style={{background: `${alert.cf_password ? '#fd2d6a14' : ''}`}} />
 
                         <small onClick={() => setTypeCfPass(!typeCfPass)}>
                             {typeCfPass ? 'Hide' : 'Show'}
@@ -106,7 +106,7 @@ const Register = () => {
                     </div>
 
                     <small className="form-text text-danger">
-                        {notifyReducer.cf_password ? notifyReducer.cf_password : ''}
+                        {alert.cf_password ? alert.cf_password : ''}
                     </small>
                 </div>
 

@@ -3,6 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
+const SocketServer = require('./socketServer')
 const { ExpressPeerServer } = require('peer')
 const path = require('path')
 
@@ -27,8 +28,11 @@ ExpressPeerServer(http, { path: '/' })
 
 // Routes
 app.use('/api', require('./server/routes/authRouter'))
-app.use('/api', require('./server/routes/user.route'))
-
+app.use('/api', require('./server/routes/userRouter'))
+app.use('/api', require('./server/routes/postRouter'))
+app.use('/api', require('./server/routes/commentRouter'))
+app.use('/api', require('./server/routes/notifyRouter'))
+app.use('/api', require('./server/routes/messageRouter'))
 
 
 require('./server/config/mongoose.config')
